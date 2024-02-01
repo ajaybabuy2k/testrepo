@@ -9,3 +9,11 @@ def fetch_commit_details(repo_owner, repo_name):
     else:
         print(f"Error: {response.status_code}")
         return []
+
+def fetch_file_content(file_url):
+    response = requests.get(file_url)
+    if response.status_code == 200:
+        return response.text
+    else:
+        print(f"Failed to fetch file content: {response.status_code}")
+        return None
